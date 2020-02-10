@@ -13,7 +13,7 @@
     - [X] Spawn with command
     - [X] Disable AI
     - [X] Disable damage
-    - [ ] Mobs can't target NPC (EntityTargetEvent)
+    - [X] Mobs can't target NPC (EntityTargetEvent)
 
 - [ ] Blacksmith Master menu
     - [X] "Remove" button to remove NPC
