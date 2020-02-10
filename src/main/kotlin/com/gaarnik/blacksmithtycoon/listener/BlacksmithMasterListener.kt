@@ -1,15 +1,13 @@
 package com.gaarnik.blacksmithtycoon.listener
 
 import com.gaarnik.blacksmithtycoon.BlacksmithMasterNPC
-import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterMainInventory
-import org.bukkit.Bukkit
+import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterMainMenu
 import org.bukkit.entity.Villager
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerInteractEntityEvent
-import org.bukkit.inventory.InventoryHolder
 
 class BlacksmithMasterListener: Listener {
 
@@ -27,16 +25,16 @@ class BlacksmithMasterListener: Listener {
         e.isCancelled = true
 
         val master = BlacksmithMasterNPC.from(e.rightClicked)
-        master.openInv(e.player)
+        master.openMenu(e.player)
     }
 
     @EventHandler
     fun onInventoryClick(e: InventoryClickEvent) {
-        if (BlacksmithMasterMainInventory.isInv(e.view.title)) {
+        if (BlacksmithMasterMainMenu.isInv(e.view.title)) {
             e.isCancelled = true
 
-            val inv = BlacksmithMasterMainInventory(e.inventory.holder as Villager)
-            inv.onInventoryClick(e)
+            val menu = BlacksmithMasterMainMenu(e.inventory.holder as Villager)
+            menu.onInventoryClick(e)
         }
     }
 

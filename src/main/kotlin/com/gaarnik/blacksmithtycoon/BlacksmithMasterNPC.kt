@@ -1,6 +1,6 @@
 package com.gaarnik.blacksmithtycoon
 
-import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterMainInventory
+import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterMainMenu
 import de.tr7zw.changeme.nbtapi.NBTEntity
 import de.tr7zw.nbtinjector.NBTInjector
 import org.bukkit.Location
@@ -13,8 +13,8 @@ class BlacksmithMasterNPC {
 
     var villager: Villager? = null
 
-    fun openInv(player: Player) {
-        BlacksmithMasterMainInventory(villager).open(player)
+    fun openMenu(player: Player) {
+        BlacksmithMasterMainMenu(villager).open(player)
     }
 
     companion object {
