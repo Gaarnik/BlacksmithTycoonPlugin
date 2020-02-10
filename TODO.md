@@ -12,7 +12,7 @@
     - [X] spawn avec une commande
     - [X] désactiver l'IA
     - [X] insensible aux dégats
-    - [ ] spawn sur le block visé (si possible), regarde vers le joueur
+    - [ ] le PNJ n'agresse pas les mobs (EntityTargetEvent)
 
 - [ ] interface pour intéragir avec le PNJ
     - [X] bouton "unspawn" pour retirer le PNJ

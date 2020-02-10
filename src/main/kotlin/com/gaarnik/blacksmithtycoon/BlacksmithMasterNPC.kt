@@ -48,7 +48,9 @@ class BlacksmithMasterNPC {
             return master
         }
 
-        fun isBlacksmithMasterNPC(e: Entity): Boolean {
+        fun isBlacksmithMasterNPC(e: Entity?): Boolean {
+            if (e == null) return false
+
             val entity = NBTInjector.patchEntity(e)
             val tag = NBTInjector.getNbtData(entity)
 
