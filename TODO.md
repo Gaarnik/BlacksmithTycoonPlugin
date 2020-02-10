@@ -15,3 +15,5 @@
 
 - [ ] Blacksmith Master menu
     - [X] "Remove" button to remove NPC
+    
+- [ ] Test todo
