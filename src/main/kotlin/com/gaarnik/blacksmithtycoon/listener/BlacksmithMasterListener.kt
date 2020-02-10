@@ -6,6 +6,7 @@ import org.bukkit.entity.Villager
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageEvent
+import org.bukkit.event.entity.EntityTargetEvent
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerInteractEntityEvent
 
@@ -14,6 +15,13 @@ class BlacksmithMasterListener: Listener {
     @EventHandler
     fun onDamage(e: EntityDamageEvent) {
         if (BlacksmithMasterNPC.isBlacksmithMasterNPC(e.entity)) {
+            e.isCancelled = true
+        }
+    }
+
+    @EventHandler
+    fun onTarget(e: EntityTargetEvent) {
+        if (BlacksmithMasterNPC.isBlacksmithMasterNPC(e.target)) {
             e.isCancelled = true
         }
     }
