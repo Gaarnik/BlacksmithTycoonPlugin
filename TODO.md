@@ -9,7 +9,7 @@
 
 ## Features
 
-- [ ] NPC "Blacksmith master"
+- [X] NPC "Blacksmith master"
     - [X] Spawn with command
     - [X] Disable AI
     - [X] Disable damage
