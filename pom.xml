@@ -26,6 +26,10 @@
       <url>https://repo.codemc.org/repository/maven-public/</url>
       <layout>default</layout>
     </repository>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
   </repositories>
 
   <dependencies>
@@ -44,6 +48,12 @@
       <groupId>de.tr7zw</groupId>
       <artifactId>nbt-injector</artifactId>
       <version>2.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.MilkBowl</groupId>
+      <artifactId>VaultAPI</artifactId>
+      <version>1.7</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
@@ -110,6 +120,10 @@
               <pattern>org.intellij</pattern>
               <shadedPattern>${shaded.package}.org.intellij</shadedPattern>
             </relocation>
+            <relocation>
+              <pattern>de.tr7zw.changeme.nbtapi</pattern>
+              <shadedPattern>${shaded.package}.libs</shadedPattern>
+            </relocation>
           </relocations>
         </configuration>
         <executions>
@@ -122,29 +136,6 @@
         </executions>
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.1</version>
-        <executions>
-          <execution>
-            <id>shade</id>
-            <phase>package</phase>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <relocations>
-            <relocation>
-              <pattern>de.tr7zw.changeme.nbtapi</pattern>
-              <shadedPattern>YOUR PACKGE WHERE THE API SHOULD END UP</shadedPattern>
-            </relocation>
-          </relocations>
-        </configuration>
-      </plugin>
-      
     </plugins>
   </build>
 </project>

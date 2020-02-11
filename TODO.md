@@ -4,8 +4,8 @@
 
 - [X] Kotlin
 - [X] Setup git repo
-- [ ] implement Vault API to get economy
-- [ ] Add system to save data for player (MongoDB / MySQL)
+- [X] implement Vault API to get economy
+- [ ] Add system to save data for player (SQLite)
 
 ## Features
 
@@ -57,3 +57,4 @@
 - Add a new Machine to craft basic Materials from resources
 - Hire NPCs to collect resources 
 - Add Axes
+- Implement built-in Economy to avoid economy plugin dependency (use config option to enable/disable feature) 
