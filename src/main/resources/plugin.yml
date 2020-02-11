@@ -3,6 +3,8 @@ name: BlacksmithTycoon
 version: "1.0"
 api-version: "1.15"
 
+depend: [Vault]
+
 commands:
   blacksmithspawn:
     description: Spawn the Blacksmith Master
