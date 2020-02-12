@@ -13,8 +13,8 @@ class BlacksmithMasterNPC {
 
     var villager: Villager? = null
 
-    fun openMenu(player: Player) {
-        BlacksmithMasterMainMenu(villager).open(player)
+    fun openMenu(plugin: BlacksmithTycoonPlugin, player: Player) {
+        BlacksmithMasterMainMenu(plugin, villager).open(player)
     }
 
     companion object {
