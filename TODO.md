@@ -17,9 +17,9 @@
 
 - [ ] Blacksmith Master menu
     - [X] "Remove" button to remove NPC
-    - [ ] Display player money
+    - [X] Display player money
         - [X] Add the icon in the menu
-        - [ ] Link vault api to the item
+        - [X] Link vault api to the item
     - [ ] Add Machines Shop button
         - [ ] Orders Sign - Free
         - [ ] Skills Bookshelf
