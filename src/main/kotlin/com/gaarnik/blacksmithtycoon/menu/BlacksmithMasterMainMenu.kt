@@ -9,8 +9,8 @@ import org.bukkit.inventory.ItemStack
 private const val TITLE = "Blacksmith Master"
 
 private enum class ItemsSlots(val slot: Int) {
-    REMOVE(26),
-    PLAYER_MONEY(18)
+    PLAYER_MONEY(18),
+    REMOVE(26)
 }
 
 class BlacksmithMasterMainMenu(private val plugin: BlacksmithTycoonPlugin, private val villager: Villager?): AbstractMenu(villager, 27, TITLE) {
