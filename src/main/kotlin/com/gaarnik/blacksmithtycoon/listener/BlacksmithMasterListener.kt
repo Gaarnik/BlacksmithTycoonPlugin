@@ -1,6 +1,7 @@
 package com.gaarnik.blacksmithtycoon.listener
 
 import com.gaarnik.blacksmithtycoon.BlacksmithMasterNPC
+import com.gaarnik.blacksmithtycoon.BlacksmithTycoonPlugin
 import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterMainMenu
 import org.bukkit.entity.Villager
 import org.bukkit.event.EventHandler
@@ -10,7 +11,7 @@ import org.bukkit.event.entity.EntityTargetEvent
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerInteractEntityEvent
 
-class BlacksmithMasterListener: Listener {
+class BlacksmithMasterListener(private val plugin: BlacksmithTycoonPlugin): Listener {
 
     @EventHandler
     fun onDamage(e: EntityDamageEvent) {
@@ -33,7 +34,7 @@ class BlacksmithMasterListener: Listener {
         e.isCancelled = true
 
         val master = BlacksmithMasterNPC.from(e.rightClicked)
-        master.openMenu(e.player)
+        master.openMenu(plugin, e.player)
     }
 
     @EventHandler
@@ -41,7 +42,7 @@ class BlacksmithMasterListener: Listener {
         if (BlacksmithMasterMainMenu.isInv(e.view.title)) {
             e.isCancelled = true
 
-            val menu = BlacksmithMasterMainMenu(e.inventory.holder as Villager)
+            val menu = BlacksmithMasterMainMenu(plugin, e.inventory.holder as Villager)
             menu.onInventoryClick(e)
         }
     }
