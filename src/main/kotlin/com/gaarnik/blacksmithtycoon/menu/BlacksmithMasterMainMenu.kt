@@ -7,11 +7,13 @@ import org.bukkit.inventory.ItemStack
 private const val TITLE = "Blacksmith Master"
 
 private enum class ItemsSlots(val slot: Int) {
-    REMOVE(26)
+    REMOVE(26),
+    SOMETHING(18)
 }
 
 private val items = arrayOf(
-        MenuItem(ItemsSlots.REMOVE.slot, ItemStack(Material.NETHER_STAR, 1), "Remove")
+        MenuItem(ItemsSlots.REMOVE.slot, ItemStack(Material.NETHER_STAR, 1), "Remove"),
+        MenuItem(ItemsSlots.SOMETHING.slot, ItemStack(Material.GOLD_NUGGET, 1), "0$")
 )
 
 class BlacksmithMasterMainMenu(private val villager: Villager?): AbstractMenu(villager, 27, TITLE, items) {
