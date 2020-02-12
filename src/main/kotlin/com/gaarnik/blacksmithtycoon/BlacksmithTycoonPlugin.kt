@@ -6,7 +6,8 @@ import org.bukkit.plugin.java.JavaPlugin
 
 class BlacksmithTycoonPlugin(): JavaPlugin() {
 
-    private var economy: Economy? = null
+    var economy: Economy? = null
+        private set
 
     override fun onLoad() {
         NBTInjector.inject()
@@ -28,8 +29,7 @@ class BlacksmithTycoonPlugin(): JavaPlugin() {
     private fun setupEconomy(): Boolean {
         if (server.pluginManager.getPlugin("Vault") == null) return false
 
-        val response = server.servicesManager.getRegistration(Economy::class.java)
-        if (response == null) return false
+        val response = server.servicesManager.getRegistration(Economy::class.java) ?: return false
 
         economy = response.provider
 
