@@ -32,7 +32,7 @@ class BlacksmithMasterMainMenu(private val plugin: BlacksmithTycoonPlugin, priva
         )
     }
 
-    override fun onMenuItemClick(slot: Int): Boolean {
+    override fun onMenuItemClick(player :Player, slot: Int): Boolean {
         if (slot == ItemsSlots.REMOVE.slot) {
             villager?.remove()
             return true
