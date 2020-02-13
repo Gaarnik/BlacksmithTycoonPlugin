@@ -21,9 +21,11 @@ abstract class AbstractMenu(owner: InventoryHolder?, size: Int, title: String) {
     }
 
     fun onInventoryClick(e: InventoryClickEvent) {
-        val close = onMenuItemClick(e.whoClicked as Player, e.rawSlot)
+        val player = e.whoClicked
+        if (player !is Player) return
+        val close = onMenuItemClick(player, e.rawSlot)
 
-        if (close) e.whoClicked.closeInventory()
+        if (close) player.closeInventory()
     }
 
     abstract fun createMenu(player: Player): Array<MenuItem>
