@@ -6,26 +6,30 @@ import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.InventoryHolder
 
-abstract class AbstractMenu(owner: InventoryHolder?, size: Int, title: String, items: Array<MenuItem>) {
+abstract class AbstractMenu(owner: InventoryHolder?, size: Int, title: String) {
 
     private var inv: Inventory = Bukkit.createInventory(owner, size, title)
 
-    init {
+    fun open(player: Player) {
+        val items = createMenu(player)
+
         items.forEach {
             inv.setItem(it.slot, it.getStack())
         }
-    }
 
-    fun open(player: Player) {
         player.openInventory(inv)
     }
 
     fun onInventoryClick(e: InventoryClickEvent) {
-        val close = onMenuItemClick(e.rawSlot)
+        val player = e.whoClicked
+        if (player !is Player) return
+        val close = onMenuItemClick(player, e.rawSlot)
 
-        if (close) e.whoClicked.closeInventory()
+        if (close) player.closeInventory()
     }
 
-    abstract fun onMenuItemClick(slot: Int): Boolean
+    abstract fun createMenu(player: Player): Array<MenuItem>
+
+    abstract fun onMenuItemClick(player: Player, slot: Int): Boolean
 
 }
