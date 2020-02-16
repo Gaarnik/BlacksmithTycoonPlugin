@@ -21,12 +21,14 @@
         - [X] Add the icon in the menu
         - [X] Link vault api to the item
     - [ ] Add Machines Shop button
+        - [X] Shop Menu
         - [ ] Orders Sign - Free
         - [ ] Skills Bookshelf
         - [ ] Blacksmith Crafting Table
         - [ ] Blacksmith Anvil
         - [ ] Blacksmith Enchanting Table
     - [ ] Add Materials Shop button
+        - [ ] Shop Menu
         - [ ] provide materials to craft weapons
 
 - [ ] Orders Sign 
