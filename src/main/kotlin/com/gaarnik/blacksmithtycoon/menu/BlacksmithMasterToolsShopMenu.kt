@@ -6,10 +6,8 @@ import org.bukkit.entity.Player
 import org.bukkit.entity.Villager
 import org.bukkit.inventory.ItemStack
 
-private const val TITLE = "Tools Shop"
-
 class BlacksmithMasterToolsShopMenu(private val plugin: BlacksmithTycoonPlugin, private val villager: Villager?):
-        AbstractMenu(villager, 27, TITLE) {
+        AbstractMenu(villager, 27, MenuTitle.TOOLS_SHOP.toString()) {
 
     private enum class ItemsSlots(val slot: Int) {
         ORDERS_SIGN(11),
@@ -83,7 +81,7 @@ class BlacksmithMasterToolsShopMenu(private val plugin: BlacksmithTycoonPlugin, 
             ItemsSlots.BLACKSMITH_ANVIL.slot,
             ItemsSlots.BLACKSMITH_ENCHANTING_TABLE.slot,
             ItemsSlots.SKILLS_BOOKSHELF.slot -> {
-                plugin.server.broadcastMessage("WIP")
+                player.sendMessage("WIP")
                 false
             }
             ItemsSlots.BACK.slot -> {
@@ -92,14 +90,6 @@ class BlacksmithMasterToolsShopMenu(private val plugin: BlacksmithTycoonPlugin, 
             }
             else -> false
         }
-    }
-
-    companion object {
-
-        fun isInv(title: String): Boolean {
-            return title == TITLE
-        }
-
     }
 
 }

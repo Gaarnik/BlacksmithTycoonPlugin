@@ -2,9 +2,7 @@ package com.gaarnik.blacksmithtycoon.listener
 
 import com.gaarnik.blacksmithtycoon.BlacksmithMasterNPC
 import com.gaarnik.blacksmithtycoon.BlacksmithTycoonPlugin
-import com.gaarnik.blacksmithtycoon.menu.AbstractMenu
-import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterMainMenu
-import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterToolsShopMenu
+import com.gaarnik.blacksmithtycoon.menu.*
 import org.bukkit.entity.Villager
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -41,16 +39,13 @@ class BlacksmithMasterListener(private val plugin: BlacksmithTycoonPlugin): List
 
     @EventHandler
     fun onInventoryClick(e: InventoryClickEvent) {
-        var menu: AbstractMenu? = null
-
-        if (BlacksmithMasterMainMenu.isInv(e.view.title)) {
-            menu = BlacksmithMasterMainMenu(plugin, e.inventory.holder as Villager)
+        val menu: AbstractMenu = when(e.view.title) {
+            MenuTitle.BLACKSMITH_MASTER.toString() ->
+                BlacksmithMasterMainMenu(plugin, e.inventory.holder as Villager)
+            MenuTitle.TOOLS_SHOP.toString() ->
+                BlacksmithMasterToolsShopMenu(plugin, e.inventory.holder as Villager)
+            else -> return
         }
-        else if (BlacksmithMasterToolsShopMenu.isInv(e.view.title)) {
-            menu = BlacksmithMasterToolsShopMenu(plugin, e.inventory.holder as Villager)
-        }
-
-        if(menu == null) return
 
         e.isCancelled = true
         menu.onInventoryClick(e)
