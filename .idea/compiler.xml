@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BlacksmithTycoon" />
+        <module name="blacksmith" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="blacksmith" target="1.5" />
       <module name="BlacksmithTycoon" target="1.5" />
     </bytecodeTargetLevel>
   </component>
