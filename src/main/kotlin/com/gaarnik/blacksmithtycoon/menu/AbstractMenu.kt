@@ -5,6 +5,7 @@ import org.bukkit.entity.Player
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.Inventory
 import org.bukkit.inventory.InventoryHolder
+import org.bukkit.inventory.ItemStack
 
 abstract class AbstractMenu(owner: InventoryHolder?, size: Int, title: String) {
 
@@ -26,6 +27,10 @@ abstract class AbstractMenu(owner: InventoryHolder?, size: Int, title: String) {
         val close = onMenuItemClick(player, e.rawSlot)
 
         if (close) player.closeInventory()
+    }
+
+    fun buyItem(player: Player, item: ItemStack, price: Double) {
+        player.inventory.addItem(item)
     }
 
     abstract fun createMenu(player: Player): Array<MenuItem>

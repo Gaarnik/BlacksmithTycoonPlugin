@@ -22,6 +22,7 @@
         - [X] Link vault api to the item
     - [ ] Add Machines Shop button
         - [X] Shop Menu
+        - [ ] Implement buy (check space in inventory & decrease money)
         - [ ] Orders Sign - Free
         - [ ] Skills Bookshelf
         - [ ] Blacksmith Crafting Table
@@ -32,7 +33,7 @@
         - [ ] provide materials to craft weapons
 
 - [ ] Orders Sign 
-    - [ ] Based on Sign
+    - [X] Based on Sign
     - [ ] Show list of orders based on player blacksmith level
     - [ ] Giving order items give money to the player
     - [ ] Order can contains multiple items

@@ -1,6 +1,9 @@
 package com.gaarnik.blacksmithtycoon.menu
 
+import com.gaarnik.blacksmithtycoon.BlacksmithItems
 import com.gaarnik.blacksmithtycoon.BlacksmithTycoonPlugin
+import com.gaarnik.blacksmithtycoon.Color
+import com.gaarnik.blacksmithtycoon.color
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.entity.Villager
@@ -76,7 +79,10 @@ class BlacksmithMasterToolsShopMenu(private val plugin: BlacksmithTycoonPlugin, 
 
     override fun onMenuItemClick(player: Player, slot: Int): Boolean {
         return when (slot) {
-            ItemsSlots.ORDERS_SIGN.slot,
+            ItemsSlots.ORDERS_SIGN.slot -> {
+                buyItem(player, BlacksmithItems.ordersSign(), 0.0)
+                true
+            }
             ItemsSlots.BLACKSMITH_CRAFTING_TABLE.slot,
             ItemsSlots.BLACKSMITH_ANVIL.slot,
             ItemsSlots.BLACKSMITH_ENCHANTING_TABLE.slot,
