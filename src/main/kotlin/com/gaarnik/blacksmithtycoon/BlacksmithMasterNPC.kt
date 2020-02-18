@@ -16,7 +16,7 @@ class BlacksmithMasterNPC {
 
     fun openMenu(plugin: BlacksmithTycoonPlugin, player: Player) {
         //BlacksmithMasterMainMenu(plugin, villager).open(player)
-        CraftingMenu(plugin, player).open(player)
+        CraftingMenu(player).open(player)
     }
 
     companion object {
