@@ -1,5 +1,6 @@
 package com.gaarnik.blacksmithtycoon
 
+import com.gaarnik.blacksmithtycoon.crafting.CraftingMenu
 import com.gaarnik.blacksmithtycoon.menu.BlacksmithMasterMainMenu
 import de.tr7zw.changeme.nbtapi.NBTEntity
 import de.tr7zw.nbtinjector.NBTInjector
@@ -14,7 +15,8 @@ class BlacksmithMasterNPC {
     var villager: Villager? = null
 
     fun openMenu(plugin: BlacksmithTycoonPlugin, player: Player) {
-        BlacksmithMasterMainMenu(plugin, villager).open(player)
+        //BlacksmithMasterMainMenu(plugin, villager).open(player)
+        CraftingMenu(plugin, player).open(player)
     }
 
     companion object {
