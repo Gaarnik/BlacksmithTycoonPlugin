@@ -5,6 +5,7 @@
 - [X] Kotlin
 - [X] Setup git repo
 - [X] implement Vault API to get economy
+- [ ] Add blacksmith player service to handle connect, disconnect, data loading
 - [ ] Add system to save data for player (SQLite)
 
 ## Features
@@ -34,9 +35,10 @@
 
 - [ ] Orders Sign 
     - [X] Based on Sign
-    - [ ] Show list of orders based on player blacksmith level
+    - [ ] Show list of orders
+    - [ ] Generate random list based on player blacksmith level
     - [ ] Giving order items give money to the player
-    - [ ] Order can contains multiple items
+    - [ ] ~~Order can contains multiple items~~
 
 - [ ] Skills Bookshelf
     - [ ] Based on Bookshelf
