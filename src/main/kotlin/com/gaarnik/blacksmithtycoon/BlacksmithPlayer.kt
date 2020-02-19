@@ -2,20 +2,10 @@ package com.gaarnik.blacksmithtycoon
 
 import org.bukkit.entity.Player
 
-class BlacksmithPlayer(val player: Player) {
-
-    private val data = BlacksmithPlayerData(player.uniqueId.toString())
+class BlacksmithPlayer(val player: Player, val data: BlacksmithPlayerData) {
 
     private var orders = ArrayList<Order>()
     private var lastOrdersUpdate: Long = 0
-
-    companion object {
-
-        fun from(player: Player): BlacksmithPlayer {
-            return BlacksmithPlayer(player)
-        }
-
-    }
 
     fun getOrders(): ArrayList<Order> {
         val currentTime = System.currentTimeMillis()
@@ -31,6 +21,4 @@ class BlacksmithPlayer(val player: Player) {
 
 }
 
-data class BlacksmithPlayerData(private val id: String) {
-    val level = 0
-}
+data class BlacksmithPlayerData(val uuid: String, val level: Int)

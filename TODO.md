@@ -5,8 +5,8 @@
 - [X] Kotlin
 - [X] Setup git repo
 - [X] implement Vault API to get economy
-- [ ] Add blacksmith player service to handle connect, disconnect, data loading
-- [ ] Add system to save data for player (SQLite)
+- [X] Add blacksmith player service to handle connect, disconnect, data loading
+- [X] Add system to save data for player (SQLite)
 
 ## Features
 
