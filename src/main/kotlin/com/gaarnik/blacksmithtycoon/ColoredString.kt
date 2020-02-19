@@ -1,4 +1,4 @@
-package com.gaarnik.blacksmithtycoon.menu
+package com.gaarnik.blacksmithtycoon
 
 enum class Color(private val value: String) {
 

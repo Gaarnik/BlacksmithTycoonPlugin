@@ -1,6 +1,8 @@
 package com.gaarnik.blacksmithtycoon.menu
 
 import com.gaarnik.blacksmithtycoon.BlacksmithTycoonPlugin
+import com.gaarnik.blacksmithtycoon.Color
+import com.gaarnik.blacksmithtycoon.color
 import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.entity.Villager

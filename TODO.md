@@ -5,6 +5,7 @@
 - [X] Kotlin
 - [X] Setup git repo
 - [X] implement Vault API to get economy
+- [ ] Add blacksmith player service to handle connect, disconnect, data loading
 - [ ] Add system to save data for player (SQLite)
 
 ## Features
@@ -22,6 +23,7 @@
         - [X] Link vault api to the item
     - [ ] Add Machines Shop button
         - [X] Shop Menu
+        - [ ] Implement buy (check space in inventory & decrease money)
         - [ ] Orders Sign - Free
         - [ ] Skills Bookshelf
         - [ ] Blacksmith Crafting Table
@@ -32,10 +34,12 @@
         - [ ] provide materials to craft weapons
 
 - [ ] Orders Sign 
-    - [ ] Based on Sign
-    - [ ] Show list of orders based on player blacksmith level
+    - [X] Based on Sign
+    - [X] Show list of available orders
+    - [ ] Fix sign orientation
+    - [ ] Generate random list based on player blacksmith level
     - [ ] Giving order items give money to the player
-    - [ ] Order can contains multiple items
+    - [ ] ~~Order can contains multiple items~~
 
 - [ ] Skills Bookshelf
     - [ ] Based on Bookshelf
