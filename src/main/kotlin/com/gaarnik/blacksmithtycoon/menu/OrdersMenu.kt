@@ -7,7 +7,7 @@ import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 class OrdersMenu(player: Player):
-        AbstractMenu(player, 27, MenuTitle.TOOLS_SHOP.toString()) {
+        AbstractMenu(player, 27, MenuTitle.ORDERS_SIGN.toString()) {
 
     override fun createMenu(player: Player): Array<MenuItem> {
         val blacksmithPlayer = BlacksmithPlayer.from(player) // use service to manage instances

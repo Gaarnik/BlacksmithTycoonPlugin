@@ -35,7 +35,8 @@
 
 - [ ] Orders Sign 
     - [X] Based on Sign
-    - [ ] Show list of orders
+    - [X] Show list of available orders
+    - [ ] Fix sign orientation
     - [ ] Generate random list based on player blacksmith level
     - [ ] Giving order items give money to the player
     - [ ] ~~Order can contains multiple items~~

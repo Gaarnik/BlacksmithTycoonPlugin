@@ -1,15 +1,18 @@
 package com.gaarnik.blacksmithtycoon.listener
 
 import com.gaarnik.blacksmithtycoon.BlacksmithItems
-import com.gaarnik.blacksmithtycoon.BlacksmithPlayer
+import com.gaarnik.blacksmithtycoon.menu.AbstractMenu
+import com.gaarnik.blacksmithtycoon.menu.MenuTitle
 import com.gaarnik.blacksmithtycoon.menu.OrdersMenu
 import org.bukkit.Location
 import org.bukkit.Material
-import org.bukkit.block.Block
 import org.bukkit.block.BlockFace
+import org.bukkit.block.Sign
+import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.Action
+import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.event.player.PlayerInteractEvent
 
 class OrdersSignListener(): Listener {
@@ -33,12 +36,28 @@ class OrdersSignListener(): Listener {
                 clickedBlock.location.z + face.modZ
         )
 
-        if (face == BlockFace.UP)
-            location.block.type = Material.OAK_WALL_SIGN
-        else
+        // TODO fix sign orientation
+        if (face == BlockFace.UP) {
             location.block.type = Material.OAK_SIGN
 
-        // add meta data ou block data to identify orders sign
+            val sign = location.block.state as? Sign ?: return
+            val signData = sign.blockData as? org.bukkit.block.data.type.Sign ?: return
+            if (e.player.facing == BlockFace.UP || e.player.facing == BlockFace.DOWN)
+                signData.rotation = BlockFace.NORTH
+            else
+                signData.rotation = e.player.facing.oppositeFace
+        }
+        else {
+            location.block.type = Material.OAK_WALL_SIGN
+
+            val signData = location.block.blockData as? org.bukkit.block.data.type.WallSign ?: return
+            if (e.player.facing == BlockFace.DOWN)
+                signData.facing = BlockFace.NORTH
+            else
+                signData.facing = e.player.facing.oppositeFace
+        }
+
+        // TODO add meta data ou block data to identify orders sign
     }
 
     @EventHandler
@@ -48,9 +67,23 @@ class OrdersSignListener(): Listener {
         val clickedBlock = e.clickedBlock ?: return
         if (clickedBlock.type != Material.OAK_SIGN && clickedBlock.type != Material.OAK_WALL_SIGN) return
 
-        // check meta data or block data to identity orders sign
+        // TODO check meta data or block data to identity orders sign
 
         OrdersMenu(e.player).open(e.player)
+    }
+
+    @EventHandler
+    fun onInventoryClick(e: InventoryClickEvent) {
+        val player = e.whoClicked as? Player ?: return
+
+        val menu: AbstractMenu = when(e.view.title) {
+            MenuTitle.ORDERS_SIGN.toString() ->
+                OrdersMenu(player)
+            else -> return
+        }
+
+        e.isCancelled = true
+        menu.onInventoryClick(e)
     }
 
 }
