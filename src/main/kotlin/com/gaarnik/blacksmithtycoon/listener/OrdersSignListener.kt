@@ -57,7 +57,6 @@ class OrdersSignListener(): Listener {
                 signData.facing = e.player.facing.oppositeFace
         }
 
-        // TODO add meta data ou block data to identify orders sign
     }
 
     @EventHandler
